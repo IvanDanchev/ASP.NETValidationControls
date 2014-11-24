@@ -5,26 +5,26 @@
 <html xmlns="http://www.w3.org/1999/xhtml" >
 <head runat="server">
     <title>Customer Form</title>
-    		<script type="text/javascript">
-<!--
-    function MyCustomValidation(objSource, objArgs) {
-        // Get value.
-        var number = objArgs.Value;//.substr(0, 3);
-        objArgs.IsValid = true;
-
-        // Check value and return result.
-        number = number.substr(0, 3);
-        if (number % 7 == 0) {
+    <script type="text/javascript">
+    <!--
+        function MyCustomValidation(objSource, objArgs) {
+            // Get value.
+            var number = objArgs.Value;//.substr(0, 3);
             objArgs.IsValid = true;
-            return;
+
+            // Check value and return result.
+            number = number.substr(0, 3);
+            if (number % 7 == 0) {
+                objArgs.IsValid = true;
+                return;
+            }
+            else {
+                objArgs.IsValid = false;
+                return;
+            }
         }
-        else {
-            objArgs.IsValid = false;
-            return;
-        }
-    }
     // -->
-		</script>
+	</script>
 </head>
 <body>
     <form id="form2" runat="server">
@@ -71,7 +71,6 @@
 		        <asp:RequiredFieldValidator id="vldRetypeRequired"
 		            runat="server" ErrorMessage="You must confirm your password."
 		            ControlToValidate="txtRetype" />
-
             </tr>
             <tr>
                 <td style="width: 112px">
@@ -114,13 +113,12 @@
 					ControlToValidate="txtCode" ClientValidationFunction="MyCustomValidation" OnServerValidate="vldCode_ServerValidate" Width="232px"></asp:CustomValidator></td>
             </tr>
         </table>
-        <br />
-				
-				<asp:Button id="cmdSubmit" 
-					runat="server" Width="120px" Text="Submit" OnClick="cmdSubmit_Click"></asp:Button>&nbsp;
-				<asp:Button id="cmdCancel" 
-					runat="server" Width="120px" Text="Cancel" 
-					CausesValidation="False" OnClick="cmdCancel_Click"></asp:Button>
+        <br />			
+			<asp:Button id="cmdSubmit" 
+				runat="server" Width="120px" Text="Submit" OnClick="cmdSubmit_Click"></asp:Button>&nbsp;
+			<asp:Button id="cmdCancel" 
+				runat="server" Width="120px" Text="Cancel" 
+				CausesValidation="False" OnClick="cmdCancel_Click"></asp:Button>
 		</div>
         <br />
 			<asp:Label id="lblMessage" 

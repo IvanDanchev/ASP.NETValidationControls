@@ -18,10 +18,12 @@ public partial class CustomerForm : System.Web.UI.Page
             lblMessage.Text = "This is a valid form.";
         }
     }
+
     protected void cmdCancel_Click(object sender, EventArgs e)
     {
         lblMessage.Text = "No attempt was made to validate this form.";
     }
+
     protected void vldCode_ServerValidate(object source, ServerValidateEventArgs e)
     {
         try
